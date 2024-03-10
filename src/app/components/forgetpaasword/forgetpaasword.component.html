@@ -1,0 +1,53 @@
+<section *ngIf="step1">
+  <form
+    [formGroup]="forgetForm"
+    (ngSubmit)="forgetPassword()"
+    class="w-50 p-3 shadow rounded mx-auto bg-main-light"
+  >
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      id="email"
+    />
+    <button class="w-100 mt-3 btn-main">Forget Password</button>
+    <p  *ngIf="userMsg" class="alert alert-danger w-75 mx-auto p-2 mt-2 text-center mb-0">{{userMsg}}</p>
+  </form>
+</section>
+
+<section *ngIf="step2">
+  <form
+    [formGroup]="resetCodeForm"
+    (ngSubmit)="resetCode()"
+    class="w-50 p-3 shadow rounded mx-auto bg-main-light"
+  >
+    <label for="resetCode">Reset Code</label>
+    <input
+      formControlName="resetCode"
+      type="text"
+      class="form-control"
+      id="resetCode"
+    />
+    <button class="w-100 mt-3 btn-main">Reset Code</button>
+    <p  *ngIf="userMsg" class="alert alert-danger w-75 mx-auto p-2 mt-2 text-center mb-0">{{userMsg}}</p>
+  </form>
+</section>
+
+<section *ngIf="step3">
+  <form
+    [formGroup]="resetPasswordForm"
+    (ngSubmit)="newPassword()"
+    class="w-50 p-3 shadow rounded mx-auto bg-main-light"
+  >
+    <label for="resetPassword">Reset Password</label>
+    <input
+      formControlName="newPassword"
+      type="text"
+      class="form-control"
+      id="resetPassword"
+    />
+    <button class="w-100 mt-3 btn-main">Reset Password</button>
+    <p  *ngIf="userMsg" class="alert alert-danger w-75 mx-auto p-2 mt-2 text-center mb-0">{{userMsg}}</p>
+  </form>
+</section>

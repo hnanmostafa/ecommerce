@@ -1,0 +1,26 @@
+<section class="my-4">
+  <h1 class="text-center" style="color: var(--main-color)">
+    <b>All Brands</b>
+  </h1>
+  <div class="row g-4 justify-content-center">
+    <div
+      class="rounded-3 col-sm-6 col-md-4 col-lg-3"
+      *ngFor="let item of brands"
+    >
+      <div (click)="flag=false ;modelImg = item.image "  role="button" class="border border-success rounded p-2 shadow">
+        <img  height="270" width="100%" [src]="item.image" alt="" />
+        <h3 class="h5 text-center">{{ item.name }}</h3>
+      </div>
+
+      <div (click)="hideModel($event.target,img)"
+        [class.d-none]="flag"
+        class="model__ position-fixed start-0 
+        top-0 w-100 h-100
+         bg-dark bg-opacity-25 d-flex justify-content-center align-items-center"
+      >
+        <img #img class="img-flag" [src]="modelImg" alt="" />
+        
+      </div>
+    </div>
+  </div>
+</section>
